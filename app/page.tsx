@@ -329,8 +329,8 @@ export default function Home() {
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-orange rounded-full opacity-20"></div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-turquoise rounded-full opacity-20"></div>
               <Image
-                src="/assets/images/full.JPG"
-                alt="Jane Doe"
+                src="/assets/images/headshot.JPG"
+                alt="Stephanie Balogun"
                 width={500}
                 height={500}
                 className="rounded-lg relative z-10"
@@ -434,10 +434,10 @@ const projects = [
     thumbnail: "/assets/images/abeke2.jpg",
   },
   {
-    title: "Efue",
+    title: "CEILING",
     category: "Films",
-    slug: "efue",
-    thumbnail: "/assets/images/efue.jpg",
+    slug: "CEILING",
+    thumbnail: "/assets/images/CEILING.jpg",
   },
   {
     title: "Holy Land",
@@ -452,13 +452,13 @@ const projects = [
     thumbnail: "/assets/images/inciting.jpg",
   },
   {
-    title: "Holy Land",
+    title: "Abeke",
     category: "Music Videos",
-    slug: "holy-land",
+    slug: "abeke",
     thumbnail: "/assets/images/abeke3.jpg",
   },
   {
-    title: "Inciting",
+    title: "Blood for Blood",
     category: "Commercials",
     slug: "inciting",
     thumbnail: "/assets/images/Bloodforblood.jpg",

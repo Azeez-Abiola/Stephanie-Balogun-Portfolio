@@ -190,10 +190,10 @@ const allProjects = [
     thumbnail: "/assets/images/inciting.jpg",
   },
   {
-    title: "Efue",
+    title: "CEILING",
     category: "Music Videos",
-    slug: "efue",
-    thumbnail: "/assets/images/efue.jpg",
+    slug: "CEILING",
+    thumbnail: "/assets/images/CEILING.jpg",
   },
   {
     title: "Timeless",
