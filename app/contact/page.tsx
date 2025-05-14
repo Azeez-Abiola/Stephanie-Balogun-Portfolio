@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, Instagram, Youtube, MapPin, Clock, Send } from "lucide-react"
+import { Mail, Instagram, Youtube, MapPin, Clock, Send } from "lucide-react"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -190,6 +190,8 @@ export default function Contact() {
                   please indicate in your message.
                 </p>
               </div>
+
+             
             </motion.div>
           </div>
         </div>
@@ -202,17 +204,12 @@ const contactInfo = [
   {
     icon: <Mail className="h-5 w-5 text-turquoise" />,
     label: "Email",
-    value: "hello@stephaniebalogun.com",
-  },
-  {
-    icon: <Phone className="h-5 w-5 text-turquoise" />,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
+    value: "createwithstephaniebalogun@gmail.com",
   },
   {
     icon: <MapPin className="h-5 w-5 text-turquoise" />,
     label: "Location",
-    value: "Los Angeles, CA",
+    value: "Lagos, Nigeria",
   },
   {
     icon: <Clock className="h-5 w-5 text-turquoise" />,

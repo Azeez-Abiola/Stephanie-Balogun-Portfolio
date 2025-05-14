@@ -19,7 +19,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/colored_by_steph?igsh=b3cyaDdqZTdhOWZj&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-orange transition-colors duration-300"
@@ -78,16 +78,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center text-gray-400">
                 <Mail className="h-4 w-4 mr-3 text-orange" />
-                <a href="mailto:hello@janedoe.com" className="hover:text-white transition-colors duration-300">
-                  hello@janedoe.com
+                <a href="mailto:createwithstephaniebalogun@gmail.com" className="hover:text-white transition-colors duration-300">
+              createwithstephaniebalogun@gmail.com
                 </a>
               </li>
-              <li className="flex items-center text-gray-400">
-                <Phone className="h-4 w-4 mr-3 text-orange" />
-                <a href="tel:+15551234567" className="hover:text-white transition-colors duration-300">
-                  +1 (555) 123-4567
-                </a>
-              </li>
+              
             </ul>
           </div>
         </div>

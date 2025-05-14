@@ -425,18 +425,18 @@ export default function Home() {
   )
 }
 
-// Sample data
+// Updated projects with correct image names and slugs
 const projects = [
   {
     title: "Abeke",
     category: "Films",
     slug: "abeke",
-    thumbnail: "/assets/images/abeke2.jpg",
+    thumbnail: "/assets/images/Abeke.jpg",
   },
   {
     title: "CEILING",
     category: "Films",
-    slug: "CEILING",
+    slug: "ceiling",
     thumbnail: "/assets/images/CEILING.jpg",
   },
   {
@@ -452,15 +452,15 @@ const projects = [
     thumbnail: "/assets/images/inciting.jpg",
   },
   {
-    title: "Abeke",
+    title: "Timeless",
     category: "Music Videos",
-    slug: "abeke",
-    thumbnail: "/assets/images/abeke3.jpg",
+    slug: "timeless",
+    thumbnail: "/assets/images/Timeless.jpg",
   },
   {
     title: "Blood for Blood",
     category: "Commercials",
-    slug: "inciting",
+    slug: "blood-for-blood",
     thumbnail: "/assets/images/Bloodforblood.jpg",
   },
 ]
@@ -530,34 +530,29 @@ const services = [
 
 const testimonials = [
   {
-    quote: "Working with Stephanie transformed our film. Her understanding of color psychology and how it impacts storytelling is unmatched.",
-    name: "Alex Rodriguez",
-    title: "Director, Echoes of Tomorrow",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80",
+    quote: "Thank you Stephanie! The new video color scheme is captivating, I like how the grade complements the atmosphere in every scene enhancing the visuals without overpowering the content. It's truly a feast for the eyes! Na you dey reign!!!!!!!",
+    name: "Victor Josiah",
+    avatar: "/assets/images/avatar-1.jpg",
   },
   {
-    quote: "Stephanie's color grading for our music video created exactly the mood we were looking for. Professional, creative, and a pleasure to work with.",
-    name: "Sarah Chen",
-    title: "Producer, Rhythm & Soul",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80",
+    quote: "Omggg I just watched the videoo! I love ittt.\nIt's even better than I expected!\nI saw the part where you added the write up. It looks so good.\nThank you!",
+    name: "Efue",
+    avatar: "/assets/images/avatar-2.jpg",
   },
   {
-    quote: "The depth and emotion she brought to our commercial campaign exceeded our expectations. A true master of her craft.",
-    name: "Michael Torres",
-    title: "Creative Director, Urban Luxury",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80",
+    quote: "I've worked with Stephanie on a wide range of projects including films, music videos and short documentaries. Her dedication, efficiency and speed are qualities that I really admire and I find them very important for our collaboration. She gets the job done!",
+    name: "Raymond Yusuff",
+    avatar: "/assets/images/avatar-3.jpg",
   },
   {
-    quote: "Her attention to detail and ability to enhance the narrative through color is remarkable. We couldn't be happier with the results.",
-    name: "Emma Thompson",
-    title: "Director, Silent Echo",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80",
+    quote: "My Humble Colorist",
+    name: "Godwin",
+    avatar: "/assets/images/avatar-4.jpg",
   },
   {
-    quote: "Stephanie's work elevated our project to new heights. Her technical expertise combined with artistic vision is truly exceptional.",
-    name: "David Park",
-    title: "Cinematographer, Fresh Perspective",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80",
+    quote: "Baddest. Top professional. i had a very good work experience with her. she delivered as exactly when promised.",
+    name: "Shimataver",
+    avatar: "/assets/images/avatar-5.jpg",
   },
 ]
 

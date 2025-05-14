@@ -32,7 +32,7 @@ export default function Work() {
           >
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">Portfolio</h1>
             <p className="text-white/70 max-w-2xl mx-auto">
-              A collection of my work in Films, commercials, and music videos.
+              A collection of my work in Films, commercials, music videos and social media.
             </p>
           </motion.div>
 
@@ -84,7 +84,7 @@ export default function Work() {
           </motion.div>
 
           {/* Project Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
             {categories.map((category, index) => (
               <motion.div
                 key={index}
@@ -149,63 +149,22 @@ export default function Work() {
   )
 }
 
-// Categories for filtering
+// Updated categories with correct counts
 const categories = [
-  { name: "Films", count: 2 },
+  { name: "Music Videos", count: 6 },
+  { name: "Films", count: 3 },
   { name: "Commercials", count: 1 },
-  { name: "Music Videos", count: 7 },
-  { name: "Brand Identity", count: 1 },
+  { name: "Social Media", count: 1 },
 ]
 
-// Updated project data with correct categorization
+// Updated project data with correct categorization and image paths
 const allProjects = [
-  {
-    title: "Salamat",
-    category: "Films",
-    slug: "salamat",
-    thumbnail: "/assets/images/salamat.jpg",
-  },
-  {
-    title: "God's Wife",
-    category: "Films",
-    slug: "gods-wife",
-    thumbnail: "/assets/images/godswife.jpg",
-  },
-  {
-    title: "Holy Land",
-    category: "Commercials",
-    slug: "holy-land",
-    thumbnail: "/assets/images/hollyland.jpg",
-  },
-  {
-    title: "Spacemen",
-    category: "Music Videos",
-    slug: "spacemen",
-    thumbnail: "/assets/images/spacemen.jpg",
-  },
-  {
-    title: "Inciting",
-    category: "Music Videos",
-    slug: "inciting",
-    thumbnail: "/assets/images/inciting.jpg",
-  },
-  {
-    title: "CEILING",
-    category: "Music Videos",
-    slug: "CEILING",
-    thumbnail: "/assets/images/CEILING.jpg",
-  },
-  {
-    title: "Timeless",
-    category: "Music Videos",
-    slug: "timeless",
-    thumbnail: "/assets/images/timeless.jpg",
-  },
+  // Music Videos (6)
   {
     title: "Abeke",
     category: "Music Videos",
     slug: "abeke",
-    thumbnail: "/assets/images/abeke2.jpg",
+    thumbnail: "/assets/images/Abeke.jpg",
   },
   {
     title: "Blood for Blood",
@@ -217,7 +176,61 @@ const allProjects = [
     title: "Ceiling",
     category: "Music Videos",
     slug: "ceiling",
-    thumbnail: "/assets/images/ceiling.jpg",
+    thumbnail: "/assets/images/CEILING.jpg",
+  },
+  {
+    title: "Inciting",
+    category: "Music Videos",
+    slug: "inciting",
+    thumbnail: "/assets/images/inciting.jpg",
+  },
+  {
+    title: "Timeless",
+    category: "Music Videos",
+    slug: "timeless",
+    thumbnail: "/assets/images/Timeless.jpg",
+  },
+  {
+    title: "Spacemen",
+    category: "Music Videos",
+    slug: "spacemen",
+    thumbnail: "/assets/images/spacemen.jpg",
+  },
+  
+  // Films (3)
+  {
+    title: "We Are All We Have",
+    category: "Films",
+    slug: "we-are-all-we-have",
+    thumbnail: "/assets/images/we are all we have.jpg",
+  },
+  {
+    title: "Salamatu's Rhapsody",
+    category: "Films",
+    slug: "salamatus-rhapsody",
+    thumbnail: "/assets/images/salamatu.jpg",
+  },
+  {
+    title: "God's Wife",
+    category: "Films",
+    slug: "gods-wife",
+    thumbnail: "/assets/images/Gods wife.jpg",
+  },
+  
+  // Commercials (1)
+  {
+    title: "Holy Land",
+    category: "Commercials",
+    slug: "holy-land",
+    thumbnail: "/assets/images/hollyland.jpg",
+  },
+  
+  // Social Media (1)
+  {
+    title: "Rotate",
+    category: "Social Media",
+    slug: "rotate",
+    thumbnail: "/assets/images/rotate.jpg",
   }
 ]
 
