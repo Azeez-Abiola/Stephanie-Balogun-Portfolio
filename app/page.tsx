@@ -431,7 +431,7 @@ const projects = [
     title: "Abeke",
     category: "Films",
     slug: "abeke",
-    thumbnail: "/assets/images/Abeke.jpg",
+    thumbnail: "/assets/images/abeke.jpg",
   },
   {
     title: "CEILING",
