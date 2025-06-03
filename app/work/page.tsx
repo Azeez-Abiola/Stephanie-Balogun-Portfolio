@@ -170,7 +170,7 @@ const allProjects = [
     title: "Blood for Blood",
     category: "Music Videos",
     slug: "blood-for-blood",
-    thumbnail: "/assets/images/bloodforblood.jpg",
+    thumbnail: "/assets/images/Bloodforblood.jpg",
   },
   {
     title: "Ceiling",
