@@ -76,28 +76,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className="absolute bottom-12 left-0 right-0 z-20 flex justify-center">
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col items-center"
-          >
-            <span className="text-white text-sm uppercase tracking-widest mb-2">Watch Showreel</span>
-            <button
-              className="w-12 h-12 rounded-full bg-turquoise flex items-center justify-center hover:bg-turquoise-light transition-colors duration-300"
-              onClick={() => {
-                // Scroll to showreel section or play video
-                window.scrollTo({
-                  top: window.innerHeight,
-                  behavior: "smooth",
-                })
-              }}
-            >
-              <Play className="h-5 w-5 text-white ml-1" />
-            </button>
-          </motion.div>
-        </div>
+        {/* Removed Watch Showreel Button */}
 
         {/* Hero Video Section */}
         <div className="relative aspect-video rounded-lg overflow-hidden bg-gradient-to-r from-black to-gray-900">
@@ -138,13 +117,14 @@ export default function Home() {
       </section>
 
       {/* Showreel Section */}
-      <section className="py-24 px-6 md:px-12 bg-black text-white">
+      {/* Reduce vertical padding here */}
+      <section className="py-12 md:py-16 px-6 md:px-12 bg-black text-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10"
           >
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">
               Color is my language
@@ -154,42 +134,22 @@ export default function Home() {
             Films, music videos, and commercials, each with a unique color story.
             </p>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative aspect-video rounded-lg overflow-hidden"
           >
-            {!isVideoPlaying ? (
-              <div className="relative w-full h-full group">
-                <Image
-                  src="/assets/images/Bloodforblood.jpg"
-                  alt="Showreel Thumbnail"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-duration-300" />
-                <button
-                  onClick={() => setIsVideoPlaying(true)}
-                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-white/20 group-hover:bg-white/30 backdrop-blur-sm flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                  aria-label="Play showreel"
-                >
-                  <Play className="w-8 h-8 text-white" />
-                </button>
-              </div>
-            ) : (
-              <iframe
-                src="https://www.youtube.com/embed/huSSYFsZT6Q?si=4KylypuZADK6KUbs&autoplay=1"
-                title="Showreel Video"
-                className="absolute top-0 left-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
+            <div className="relative w-full h-full">
+              <Image
+                src="/assets/images/collage.jpg"
+                alt="Work Collage"
+                fill
+                className="object-cover"
+                priority
               />
-            )}
+            </div>
           </motion.div>
-
           <motion.p
             className="text-center text-lg max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
@@ -425,43 +385,43 @@ export default function Home() {
   )
 }
 
-// Updated projects with correct image names and slugs
+// Updated projects with correct categories and image names
 const projects = [
   {
     title: "Abeke",
-    category: "Films",
+    category: "Music Videos",
     slug: "abeke",
     thumbnail: "/assets/images/abeke.jpg",
   },
   {
     title: "CEILING",
-    category: "Films",
+    category: "Music Videos",
     slug: "ceiling",
-    thumbnail: "/assets/images/CEILING.jpg",
+    thumbnail: "/assets/images/ceiling1.jpg",
   },
   {
-    title: "Holy Land",
-    category: "Music Videos",
+    title: "Hollyland",
+    category: "Commercials",
     slug: "holy-land",
-    thumbnail: "/assets/images/hollyland.jpg",
+    thumbnail: "/assets/images/HollyLand1.jpg",
   },
   {
     title: "Inciting",
-    category: "Commercials",
+    category: "Music Videos",
     slug: "inciting",
-    thumbnail: "/assets/images/inciting.jpg",
+    thumbnail: "/assets/images/Inciting1.jpg",
   },
   {
     title: "Timeless",
     category: "Music Videos",
     slug: "timeless",
-    thumbnail: "/assets/images/Timeless.jpg",
+    thumbnail: "/assets/images/Timeless1.jpg",
   },
   {
     title: "Blood for Blood",
-    category: "Commercials",
+    category: "Music Videos",
     slug: "blood-for-blood",
-    thumbnail: "/assets/images/Bloodforblood.jpg",
+    thumbnail: "/assets/images/bloodforblood.jpg",
   },
 ]
 
@@ -654,4 +614,3 @@ function TestimonialsCarousel({ testimonials }) {
     </>
   )
 }
-

@@ -88,7 +88,7 @@ const categoryData = {
     description: "Commercial and advertising color grading",
     projects: [
       {
-        title: "Holy Land",
+        title: "Hollyland",
         year: "2024",
         description: "Premium commercial color grading with visual impact",
         thumbnail: "/assets/images/hollyland.jpg",

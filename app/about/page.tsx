@@ -54,7 +54,7 @@ export default function About() {
               <div className="h-px w-16 bg-orange"></div>
               <p className="text-white/70">
               Stephanie Balogun is a Nigerian-based filmmaker who specializes in cinematography and coloring. Scratch that, let me talk about me. I have always had a passion and an interest in visual art. It started with a love for acting and photography, and then it morphed into a love for the art of filmmaking- I no longer wanted to simply be in movies, I wanted to tell stories. 
-I was a student at the renowned Identity School of Acting, the former home to John Boyega, Damson Idris, and Simone Ashley. I also featured in a widely popular web series (which I hope you never find), and all of these contributed to the passion I now have for filmmaking. (It’s one thing to love food, and it’s another thing to love cooking food; it was time for me to be a chef). 
+I was a student at the renowned Identity School of Acting, the former home to John Boyega, Damson Idris, and Simone Ashley. I also featured in a widely popular web series (which I hope you never find), and all of these contributed to the passion I now have for filmmaking. (It's one thing to love food, and it's another thing to love cooking food; it was time for me to be a chef). 
 
               </p>
               <p className="text-white/70">
@@ -64,7 +64,7 @@ I was a student at the renowned Identity School of Acting, the former home to Jo
               </p>
               <p className="text-white/70">
               My goal as a cinematographer and colorist is to create images that look and feel surreal. I have since become a Davinci Resolve certified colorist with a long list of verifiable projects credited to my name. 
-              I believe that my knowledge as a cinematographer gives me an upper hand as a colorist because I am able to imitate and bring to life exactly what any cinematographer or director I work with intended for the image.
+              I believe that my knowledge as a cinematographer gives me an upper hand as a colorist because I am able to imitate and bring to life exactly what any cinematographer or director I work with intended for the image.
 
               </p>
             </motion.div>
@@ -282,17 +282,6 @@ const tools = [
         <rect width="32" height="32" rx="8" fill="#222" />
         <circle cx="16" cy="16" r="10" fill="#00C389" />
         <rect x="10" y="10" width="12" height="12" rx="6" fill="#fff" fillOpacity="0.2" />
-      </svg>
-    ),
-  },
-  {
-    name: "FilmLight",
-    logo: "/assets/icons/filmlight.png",
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" className="mx-auto" fill="none">
-        <rect width="32" height="32" rx="8" fill="#222" />
-        <rect x="8" y="8" width="16" height="16" rx="4" fill="#F9C846" />
-        <rect x="12" y="12" width="8" height="8" rx="2" fill="#fff" fillOpacity="0.2" />
       </svg>
     ),
   },

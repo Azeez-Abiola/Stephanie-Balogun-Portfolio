@@ -76,7 +76,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       services: ["Color Grading", "Final Color", "DI"],
     },
     {
-      title: "Holy Land",
+      title: "Hollyland",
       category: "Commercials",
       slug: "holy-land",
       heroImage: "/assets/images/HollyLand1.jpg",
@@ -329,36 +329,82 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
 
-          {/* Project Overview */}
+          {/* Stills Section - Replacing Project Overview */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid md:grid-cols-2 gap-12 items-start mb-24"
+            className="mb-24"
+          >
+            <h2 className="font-serif text-3xl mb-8 text-center">Stills</h2>
+            
+            {/* Stills Grid - Dynamic based on project */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {(() => {
+                // Define stills for each project
+                const stillsMap: Record<string, string[]> = {
+                  'abeke': Array.from({length: 7}, (_, i) => `/assets/images/Abekestill${i + 1}.jpg`),
+                  'blood-for-blood': Array.from({length: 7}, (_, i) => `/assets/images/Bloodstill${i + 1}.jpg`),
+                  'ceiling': Array.from({length: 6}, (_, i) => `/assets/images/Ceilingstill${i + 1}.jpg`),
+                  'holy-land': Array.from({length: 10}, (_, i) => `/assets/images/Hollylandstill${i + 1}.jpg`),
+                  'inciting': Array.from({length: 8}, (_, i) => `/assets/images/Incitingstill${i + 1}.jpg`),
+                  'spacemen': Array.from({length: 7}, (_, i) => `/assets/images/Spacestill${i + 1}.jpg`),
+                  'we-are-all-we-have': Array.from({length: 7}, (_, i) => `/assets/images/Westill${i + 1}.jpg`),
+                  // For projects without specific stills, use cover images or placeholders
+                  'gods-wife': project.coverImages,
+                  'salamatus-rhapsody': project.coverImages,
+                  'timeless': [project.heroImage],
+                  'rotate': project.coverImages
+                };
+
+                const stills = stillsMap[project.slug] || [project.heroImage];
+
+                return stills.map((stillImage: string, index: number) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="aspect-video relative rounded-lg overflow-hidden"
+                  >
+                    <Image
+                      src={stillImage}
+                      alt={`${project.title} - Still ${index + 1}`}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </motion.div>
+                ));
+              })()}
+            </div>
+          </motion.div>
+
+          {/* Project Info - Simplified */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="grid md:grid-cols-2 gap-12 items-start"
           >
             <div>
-              <h2 className="font-serif text-3xl mb-6">Project Overview</h2>
-              <div className="prose prose-invert">
-                <p className="text-white/70">{project.overview}</p>
-              </div>
+              <h3 className="text-lg mb-2">Client</h3>
+              <p className="text-white/70 mb-6">{project.client}</p>
+              
+              <h3 className="text-lg mb-2">Year</h3>
+              <p className="text-white/70">{project.year}</p>
             </div>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg mb-2">Client</h3>
-                <p className="text-white/70">{project.client}</p>
-              </div>
-              <div>
-                <h3 className="text-lg mb-2">Services</h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.services.map((service, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-white/5 rounded-full text-sm text-white/70"
-                    >
-                      {service}
-                    </span>
-                  ))}
-                </div>
+            <div>
+              <h3 className="text-lg mb-2">Services</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.services.map((service, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-white/5 rounded-full text-sm text-white/70"
+                  >
+                    {service}
+                  </span>
+                ))}
               </div>
             </div>
           </motion.div>

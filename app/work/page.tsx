@@ -63,9 +63,6 @@ export default function Work() {
                   </button>
                   <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                     <h2 className="font-serif text-3xl mb-2">Featured Work</h2>
-                    <p className="text-turquoise text-sm uppercase tracking-wider font-medium">
-                      Showreel • 2024
-                    </p>
                   </div>
                 </div>
               ) : (
@@ -219,7 +216,7 @@ const allProjects = [
   
   // Commercials (1)
   {
-    title: "Holy Land",
+    title: "Hollyland",
     category: "Commercials",
     slug: "holy-land",
     thumbnail: "/assets/images/HollyLand1.jpg",

@@ -30,7 +30,7 @@ const categories = [
     description: "Commercial and advertising color grading",
     slug: "commercials",
     items: [
-      { title: "Holy Land", slug: "holy-land" }
+      { title: "Hollyland", slug: "holy-land" }
     ]
   },
   {
