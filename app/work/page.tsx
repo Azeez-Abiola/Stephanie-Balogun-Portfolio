@@ -164,31 +164,31 @@ const allProjects = [
     title: "Abeke",
     category: "Music Videos",
     slug: "abeke",
-    thumbnail: "/assets/images/Abeke.jpg",
+    thumbnail: "/assets/images/abeke.jpg",
   },
   {
     title: "Blood for Blood",
     category: "Music Videos",
     slug: "blood-for-blood",
-    thumbnail: "/assets/images/Bloodforblood.jpg",
+    thumbnail: "/assets/images/bloodforblood.jpg",
   },
   {
     title: "Ceiling",
     category: "Music Videos",
     slug: "ceiling",
-    thumbnail: "/assets/images/CEILING.jpg",
+    thumbnail: "/assets/images/ceiling1.jpg",
   },
   {
     title: "Inciting",
     category: "Music Videos",
     slug: "inciting",
-    thumbnail: "/assets/images/inciting.jpg",
+    thumbnail: "/assets/images/Inciting1.jpg",
   },
   {
     title: "Timeless",
     category: "Music Videos",
     slug: "timeless",
-    thumbnail: "/assets/images/Timeless.jpg",
+    thumbnail: "/assets/images/Timeless1.jpg",
   },
   {
     title: "Spacemen",
@@ -202,19 +202,19 @@ const allProjects = [
     title: "We Are All We Have",
     category: "Films",
     slug: "we-are-all-we-have",
-    thumbnail: "/assets/images/we are all we have.jpg",
+    thumbnail: "/assets/images/Weareallwehave1.jpg",
   },
   {
     title: "Salamatu's Rhapsody",
     category: "Films",
     slug: "salamatus-rhapsody",
-    thumbnail: "/assets/images/salamatu.jpg",
+    thumbnail: "/assets/images/Salamatu1.jpg",
   },
   {
     title: "God's Wife",
     category: "Films",
     slug: "gods-wife",
-    thumbnail: "/assets/images/Gods wife.jpg",
+    thumbnail: "/assets/images/Godswife1.jpg",
   },
   
   // Commercials (1)
@@ -222,7 +222,7 @@ const allProjects = [
     title: "Holy Land",
     category: "Commercials",
     slug: "holy-land",
-    thumbnail: "/assets/images/hollyland.jpg",
+    thumbnail: "/assets/images/HollyLand1.jpg",
   },
   
   // Social Media (1)
@@ -230,7 +230,7 @@ const allProjects = [
     title: "Rotate",
     category: "Social Media",
     slug: "rotate",
-    thumbnail: "/assets/images/rotate.jpg",
+    thumbnail: "/assets/images/Rotate1.jpg",
   }
 ]
 
