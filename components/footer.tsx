@@ -14,7 +14,7 @@ export default function Footer() {
               Stephanie Balogun
             </Link>
             <p className="text-gray-400 mt-4 mb-6 max-w-md">
-              Professional film colorist with over 5 years of experience crafting visual aesthetics for films,
+              Professional film colorist with over 3 years of experience crafting visual aesthetics for films,
               commercials, and music videos.
             </p>
             <div className="flex space-x-4">
@@ -88,7 +88,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">© {currentYear} Jane Doe. All rights reserved.</p>
+          <p className="text-gray-500 text-sm">© {currentYear} Stephanie Balogun. All rights reserved.</p>
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6 text-sm text-gray-500">
               <li>

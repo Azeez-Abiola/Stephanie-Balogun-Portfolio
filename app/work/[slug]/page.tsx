@@ -53,8 +53,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       title: "Blood for Blood",
       category: "Music Videos",
       slug: "blood-for-blood",
-      heroImage: "/assets/images/bloodforblood.jpg",
-      coverImages: ["/assets/images/bloodforblood.jpg"], // Single image
+      heroImage: "/assets/images/Bloodforblood.jpg",
+      coverImages: ["/assets/images/Bloodforblood.jpg"], // Single image
       client: "Brand Client",
       year: "2024",
       description: "A powerful commercial with striking visuals and dramatic color treatment.",
