@@ -6,6 +6,11 @@ import Link from "next/link"
 import { Download, FileText, Image as ImageIcon, Package } from "lucide-react"
 
 export default function MediaKit() {
+  // Filter out Press Release and Photo Pack cards
+  const filteredQuickDownloads = quickDownloads.filter(
+    (item) => item.title !== "Press Release" && item.title !== "Photo Pack"
+  )
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
@@ -34,7 +39,7 @@ export default function MediaKit() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24"
           >
-            {quickDownloads.map((item, index) => (
+            {filteredQuickDownloads.map((item, index) => (
               <div
                 key={index}
                 className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-turquoise/50 transition-all duration-300 group"
@@ -53,6 +58,7 @@ export default function MediaKit() {
           </motion.div>
 
           {/* Press Photos */}
+          {/*
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,6 +89,7 @@ export default function MediaKit() {
               ))}
             </div>
           </motion.div>
+          */}
 
           {/* Brand Guidelines */}
           <motion.div
@@ -172,4 +179,3 @@ const brandColors = [
   { hex: "#FFFFFF" }, // White
   { hex: "#000000" }, // Black
 ]
-

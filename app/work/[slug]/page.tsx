@@ -199,6 +199,16 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     router.back()
   }
 
+  const handlePlayClick = () => {
+    if (project.slug === 'rotate') {
+      // For Rotate project, open Instagram link in new tab
+      window.open('https://www.instagram.com/reel/DHLlZl8g3Is/?igsh=NnQ4Z2IyczhnZHlx', '_blank')
+    } else {
+      // For other projects, play video normally
+      setIsVideoPlaying(true)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
@@ -257,7 +267,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               }}
             >
               <ArrowLeft className="h-5 w-5 mr-2" />
-              Back
+              Back to Work
             </a>
           </div>
 
@@ -265,7 +275,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <>
               <div className="absolute inset-0 flex items-center justify-center">
                 <button
-                  onClick={() => setIsVideoPlaying(true)}
+                  onClick={handlePlayClick}
                   className="w-20 h-20 rounded-full bg-turquoise/80 flex items-center justify-center hover:bg-turquoise transition-colors duration-300"
                 >
                   <Play className="h-8 w-8 text-white ml-1" />

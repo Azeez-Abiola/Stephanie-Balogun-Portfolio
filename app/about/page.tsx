@@ -129,13 +129,11 @@ I was a student at the renowned Identity School of Acting, the former home to Jo
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white/5 p-6 rounded-lg text-center hover:bg-white/10 transition-colors duration-300"
               >
-                <Image
-                  src={tool.logo}
-                  alt={tool.name}
-                  width={64}
-                  height={64}
-                  className="mx-auto mb-4"
-                />
+                <div className="flex flex-col items-center mb-4">
+                  {tool.icon && (
+                    <div>{tool.icon}</div>
+                  )}
+                </div>
                 <h3 className="text-lg text-turquoise">{tool.name}</h3>
               </motion.div>
             ))}
@@ -250,22 +248,52 @@ const expertise = [
   },
 ]
 
+// Updated tool icons with real logos or representative SVGs
 const tools = [
   {
     name: "DaVinci Resolve",
-    logo: "/placeholder.svg",
+    logo: "/assets/icons/davinci-resolve.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" className="mx-auto" fill="none">
+        <circle cx="16" cy="16" r="16" fill="#222" />
+        <g>
+          <ellipse cx="16" cy="10" rx="5" ry="6" fill="#00B3FF" />
+          <ellipse cx="10.5" cy="20" rx="5" ry="6" fill="#FF5B00" />
+          <ellipse cx="21.5" cy="20" rx="5" ry="6" fill="#FFD600" />
+        </g>
+      </svg>
+    ),
   },
   {
     name: "Adobe Premiere Pro",
-    logo: "/placeholder.svg",
+    logo: "/assets/icons/premiere-pro.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" className="mx-auto" fill="none">
+        <rect width="32" height="32" rx="8" fill="#2A2A6A" />
+        <text x="7" y="23" fontFamily="Arial" fontWeight="bold" fontSize="16" fill="#E3AFFF">Pr</text>
+      </svg>
+    ),
   },
   {
     name: "Baselight",
-    logo: "/placeholder.svg",
+    logo: "/assets/icons/baselight.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" className="mx-auto" fill="none">
+        <rect width="32" height="32" rx="8" fill="#222" />
+        <circle cx="16" cy="16" r="10" fill="#00C389" />
+        <rect x="10" y="10" width="12" height="12" rx="6" fill="#fff" fillOpacity="0.2" />
+      </svg>
+    ),
   },
   {
     name: "FilmLight",
-    logo: "/placeholder.svg",
+    logo: "/assets/icons/filmlight.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 32 32" className="mx-auto" fill="none">
+        <rect width="32" height="32" rx="8" fill="#222" />
+        <rect x="8" y="8" width="16" height="16" rx="4" fill="#F9C846" />
+        <rect x="12" y="12" width="8" height="8" rx="2" fill="#fff" fillOpacity="0.2" />
+      </svg>
+    ),
   },
 ]
-
