@@ -209,7 +209,7 @@ const contactInfo = [
   {
     icon: <MapPin className="h-5 w-5 text-turquoise" />,
     label: "Location",
-    value: "Lagos, Nigeria",
+    value: "Kaduna, Nigeria",
   },
   {
     icon: <Clock className="h-5 w-5 text-turquoise" />,

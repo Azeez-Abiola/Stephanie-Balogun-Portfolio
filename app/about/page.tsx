@@ -119,7 +119,7 @@ I was a student at the renowned Identity School of Acting, the former home to Jo
             Tools & Software
           </motion.h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:max-w-3xl md:mx-auto">
             {tools.map((tool, index) => (
               <motion.div
                 key={index}

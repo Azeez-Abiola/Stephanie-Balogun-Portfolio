@@ -293,11 +293,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <span className="px-3 py-1 bg-turquoise/20 rounded-full text-sm">
                       {project.category}
                     </span>
-                    <span className="text-white/50">•</span>
-                    <span className="text-white/70">{project.year}</span>
                   </div>
                   <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">{project.title}</h1>
-                  <p className="text-xl text-white/70 max-w-2xl">{project.description}</p>
                 </motion.div>
               </div>
             </>
@@ -308,28 +305,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       {/* Project Details */}
       <section className="py-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          {/* Cover Images Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
-            {project.coverImages.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="aspect-video relative rounded-lg overflow-hidden"
-              >
-                <Image
-                  src={image}
-                  alt={`${project.title} - Cover ${index + 1}`}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
-                />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Stills Section - Replacing Project Overview */}
+          {/* Stills Section - Now the main content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -338,8 +314,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           >
             <h2 className="font-serif text-3xl mb-8 text-center">Stills</h2>
             
-            {/* Stills Grid - Dynamic based on project */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Stills Grid - Using larger layout similar to covers */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {(() => {
                 // Define stills for each project
                 const stillsMap: Record<string, string[]> = {
@@ -372,7 +348,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       alt={`${project.title} - Still ${index + 1}`}
                       fill
                       className="object-cover hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                     />
                   </motion.div>
                 ));
@@ -390,9 +366,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <div>
               <h3 className="text-lg mb-2">Client</h3>
               <p className="text-white/70 mb-6">{project.client}</p>
-              
-              <h3 className="text-lg mb-2">Year</h3>
-              <p className="text-white/70">{project.year}</p>
             </div>
             <div>
               <h3 className="text-lg mb-2">Services</h3>

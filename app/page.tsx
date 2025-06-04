@@ -18,6 +18,13 @@ export default function Home() {
     }
   }, [])
 
+  const scrollToVideo = () => {
+    const videoSection = document.getElementById('hero-video-section')
+    if (videoSection) {
+      videoSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   const fadeInUp = {
     initial: { y: 60, opacity: 0 },
     animate: { y: 0, opacity: 1 },
@@ -74,6 +81,21 @@ export default function Home() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </motion.div>
+
+          {/* Watch Showreel Button */}
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-48"
+          >
+            <button
+              onClick={scrollToVideo}
+              className="w-16 h-16 rounded-full bg-turquoise/80 hover:bg-turquoise flex items-center justify-center transition-all duration-300 hover:scale-110 mx-auto"
+            >
+              <Play className="w-6 h-6 text-white ml-1" />
+            </button>
+          </motion.div>
         </div>
 
         {/* Removed Watch Showreel Button */}
@@ -118,7 +140,7 @@ export default function Home() {
 
       {/* Showreel Section */}
       {/* Reduce vertical padding here */}
-      <section className="py-12 md:py-16 px-6 md:px-12 bg-black text-white">
+      <section id="hero-video-section" className="pt-2 pb-12 md:pt-2 md:pb-16 px-6 md:px-12 bg-black text-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -127,7 +149,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">
-              Color is my language
+           Color is my language
             </h1>
             <p className="text-white/70 max-w-2xl mx-auto">
             I craft visual narratives through color, enhancing the emotional impact of every frame. My work spans
@@ -549,15 +571,7 @@ function TestimonialsCarousel({ testimonials }) {
             >
               <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
-                    <Image
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      width={64}
-                      height={64}
-                      className="object-cover"
-                    />
-                  </div>
+                  {/* Avatar and grey circle removed */}
                   <div>
                     <h3 className="font-medium text-xl">{testimonial.name}</h3>
                     <p className="text-gray-500">{testimonial.title}</p>

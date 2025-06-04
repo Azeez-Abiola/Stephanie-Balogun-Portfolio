@@ -37,7 +37,7 @@ export default function MediaKit() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 md:max-w-2xl md:mx-auto"
           >
             {filteredQuickDownloads.map((item, index) => (
               <div
