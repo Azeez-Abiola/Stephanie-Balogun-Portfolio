@@ -6,6 +6,7 @@ import Link from "next/link"
 import { ArrowLeft, Play, Eye, Clock, Calendar, Award } from "lucide-react"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
+import Head from "next/head"
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const router = useRouter()
@@ -195,6 +196,23 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
   if (!project) return null
 
+  // Get the stills for preloading
+  const stillsMap: Record<string, string[]> = {
+    'abeke': Array.from({length: 7}, (_, i) => `/assets/images/Abekestill${i + 1}.jpg`),
+    'blood-for-blood': Array.from({length: 7}, (_, i) => `/assets/images/Bloodstill${i + 1}.jpg`),
+    'ceiling': Array.from({length: 6}, (_, i) => `/assets/images/Ceilingstill${i + 1}.jpg`),
+    'holy-land': Array.from({length: 10}, (_, i) => `/assets/images/Hollylandstill${i + 1}.jpg`),
+    'inciting': Array.from({length: 8}, (_, i) => `/assets/images/Incitingstill${i + 1}.jpg`),
+    'spacemen': Array.from({length: 7}, (_, i) => `/assets/images/Spacestill${i + 1}.jpg`),
+    'we-are-all-we-have': Array.from({length: 7}, (_, i) => `/assets/images/Westill${i + 1}.jpg`),
+    'gods-wife': project.coverImages,
+    'salamatus-rhapsody': project.coverImages,
+    'timeless': [project.heroImage],
+    'rotate': project.coverImages
+  };
+  
+  const stills = stillsMap[project.slug] || [project.heroImage];
+
   const handleBackClick = () => {
     router.back()
   }
@@ -210,137 +228,128 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <section className="relative h-screen">
-        {/* Full-screen background image or video */}
-        <div className="absolute inset-0">
-          {!isVideoPlaying ? (
-            <>
-              <Image
-                src={project.heroImage}
-                alt={project.title}
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-            </>
-          ) : (
-            <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
-              {/* Close/Exit Video Button */}
-              <button
-                onClick={() => setIsVideoPlaying(false)}
-                className="absolute top-4 right-4 z-50 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors duration-300"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              
-              {/* Video Container */}
-              <div className="w-full max-w-6xl mx-4" style={{ aspectRatio: '16/9' }}>
-                <iframe
-                  src={project.videoUrl}
-                  title={project.title}
-                  className="w-full h-full rounded-lg"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
+    <>
+      {/* Preload critical images */}
+      <Head>
+        <link rel="preload" as="image" href={project.heroImage} />
+        {stills.slice(0, 6).map((still, index) => (
+          <link key={index} rel="preload" as="image" href={still} />
+        ))}
+      </Head>
+      
+      <div className="min-h-screen bg-black text-white">
+        {/* Hero Section */}
+        <section className="relative h-screen">
+          {/* Full-screen background image or video */}
+          <div className="absolute inset-0">
+            {!isVideoPlaying ? (
+              <>
+                <Image
+                  src={project.heroImage}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  loading="eager"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+              </>
+            ) : (
+              <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
+                {/* Close/Exit Video Button */}
+                <button
+                  onClick={() => setIsVideoPlaying(false)}
+                  className="absolute top-4 right-4 z-50 w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors duration-300"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                
+                {/* Video Container */}
+                <div className="w-full max-w-6xl mx-4" style={{ aspectRatio: '16/9' }}>
+                  <iframe
+                    src={project.videoUrl}
+                    title={project.title}
+                    className="w-full h-full rounded-lg"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-
-        {/* Content */}
-        <div className="relative h-full">
-          <div className="absolute top-6 left-6" style={{ zIndex: 9999 }}>
-            <a
-              href="/work"
-              className="inline-flex items-center text-white/70 hover:text-white transition-colors duration-300 bg-black/50 hover:bg-black/70 px-4 py-2 rounded-full backdrop-blur-sm"
-              style={{ 
-                cursor: 'pointer',
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center'
-              }}
-            >
-              <ArrowLeft className="h-5 w-5 mr-2" />
-              Back to Work
-            </a>
+            )}
           </div>
 
-          {!isVideoPlaying && (
-            <>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button
-                  onClick={handlePlayClick}
-                  className="w-20 h-20 rounded-full bg-turquoise/80 flex items-center justify-center hover:bg-turquoise transition-colors duration-300"
-                >
-                  <Play className="h-8 w-8 text-white ml-1" />
-                </button>
-              </div>
+          {/* Content */}
+          <div className="relative h-full">
+            <div className="absolute top-6 left-6" style={{ zIndex: 9999 }}>
+              <a
+                href="/work"
+                className="inline-flex items-center text-white/70 hover:text-white transition-colors duration-300 bg-black/50 hover:bg-black/70 px-4 py-2 rounded-full backdrop-blur-sm"
+                style={{ 
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center'
+                }}
+              >
+                <ArrowLeft className="h-5 w-5 mr-2" />
+                Back to Work
+              </a>
+            </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="max-w-7xl mx-auto"
-                >
-                  <div className="flex flex-wrap items-center gap-4 mb-4">
-                    <span className="px-3 py-1 bg-turquoise/20 rounded-full text-sm">
-                      {project.category}
-                    </span>
-                  </div>
-                  <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">{project.title}</h1>
-                </motion.div>
-              </div>
-            </>
-          )}
-        </div>
-      </section>
+            {!isVideoPlaying && (
+              <>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button
+                    onClick={handlePlayClick}
+                    className="w-20 h-20 rounded-full bg-turquoise/80 flex items-center justify-center hover:bg-turquoise transition-colors duration-300"
+                  >
+                    <Play className="h-8 w-8 text-white ml-1" />
+                  </button>
+                </div>
 
-      {/* Project Details */}
-      <section className="py-24 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          {/* Stills Section - Now the main content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-24"
-          >
-            <h2 className="font-serif text-3xl mb-8 text-center">Stills</h2>
-            
-            {/* Stills Grid - Using larger layout similar to covers */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {(() => {
-                // Define stills for each project
-                const stillsMap: Record<string, string[]> = {
-                  'abeke': Array.from({length: 7}, (_, i) => `/assets/images/Abekestill${i + 1}.jpg`),
-                  'blood-for-blood': Array.from({length: 7}, (_, i) => `/assets/images/Bloodstill${i + 1}.jpg`),
-                  'ceiling': Array.from({length: 6}, (_, i) => `/assets/images/Ceilingstill${i + 1}.jpg`),
-                  'holy-land': Array.from({length: 10}, (_, i) => `/assets/images/Hollylandstill${i + 1}.jpg`),
-                  'inciting': Array.from({length: 8}, (_, i) => `/assets/images/Incitingstill${i + 1}.jpg`),
-                  'spacemen': Array.from({length: 7}, (_, i) => `/assets/images/Spacestill${i + 1}.jpg`),
-                  'we-are-all-we-have': Array.from({length: 7}, (_, i) => `/assets/images/Westill${i + 1}.jpg`),
-                  // For projects without specific stills, use cover images or placeholders
-                  'gods-wife': project.coverImages,
-                  'salamatus-rhapsody': project.coverImages,
-                  'timeless': [project.heroImage],
-                  'rotate': project.coverImages
-                };
+                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-7xl mx-auto"
+                  >
+                    <div className="flex flex-wrap items-center gap-4 mb-4">
+                      <span className="px-3 py-1 bg-turquoise/20 rounded-full text-sm">
+                        {project.category}
+                      </span>
+                    </div>
+                    <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl mb-6">{project.title}</h1>
+                  </motion.div>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
 
-                const stills = stillsMap[project.slug] || [project.heroImage];
-
-                return stills.map((stillImage: string, index: number) => (
+        {/* Project Details */}
+        <section className="py-24 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
+            {/* Stills Section - Now the main content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="mb-24"
+            >
+              <h2 className="font-serif text-3xl mb-8 text-center">Stills</h2>
+              
+              {/* Stills Grid - Using larger layout similar to covers */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {stills.map((stillImage: string, index: number) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
                     className="aspect-video relative rounded-lg overflow-hidden"
                   >
                     <Image
@@ -349,41 +358,43 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       fill
                       className="object-cover hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
+                      priority={index < 6}
+                      loading={index < 6 ? "eager" : "lazy"}
                     />
                   </motion.div>
-                ));
-              })()}
-            </div>
-          </motion.div>
-
-          {/* Project Info - Simplified */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="grid md:grid-cols-2 gap-12 items-start"
-          >
-            <div>
-              <h3 className="text-lg mb-2">Client</h3>
-              <p className="text-white/70 mb-6">{project.client}</p>
-            </div>
-            <div>
-              <h3 className="text-lg mb-2">Services</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.services.map((service, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-white/5 rounded-full text-sm text-white/70"
-                  >
-                    {service}
-                  </span>
                 ))}
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+            </motion.div>
+
+            {/* Project Info - Simplified */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="grid md:grid-cols-2 gap-12 items-start"
+            >
+              <div>
+                <h3 className="text-lg mb-2">Client</h3>
+                <p className="text-white/70 mb-6">{project.client}</p>
+              </div>
+              <div>
+                <h3 className="text-lg mb-2">Services</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.services.map((service, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-white/5 rounded-full text-sm text-white/70"
+                    >
+                      {service}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </div>
+    </>
   )
 }
 
