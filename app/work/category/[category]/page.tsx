@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 import { ArrowLeft, Play } from "lucide-react"
 
 // Project data organized by category based on your list
-const categoryData = {
+const categoryData = { 
   'music-videos': {
     title: "Music Videos",
     description: "Music video color grading and visual effects",
@@ -58,7 +58,7 @@ const categoryData = {
         title: "I Think of You",
         year: "2024",
         description: "An emotional music video with thoughtful color treatment",
-        thumbnail: "/assets/images/thinkof1.jpg",
+        thumbnail: "/assets/images/thinkofcover.jpg",
         slug: "i-think-of-you"
       }
     ]
@@ -85,20 +85,14 @@ const categoryData = {
         title: "God's Wife",
         year: "2024",
         description: "Sophisticated color treatment for dramatic effect",
-        thumbnail: "/assets/images/Godswife1.jpg",
+        thumbnail: "/assets/images/Godswife6.jpg",
         slug: "gods-wife"
-      }
-    ]
-  },
-  'short-films': {
-    title: "Short Films",
-    description: "Short film color grading and visual storytelling",
-    projects: [
+      },
       {
         title: "Alone",
         year: "2024",
         description: "A contemplative short film exploring solitude and introspection",
-        thumbnail: "/assets/images/Alone1.jpg",
+        thumbnail: "/assets/images/alonecover.jpg",
         slug: "alone"
       }
     ]
@@ -131,17 +125,17 @@ const categoryData = {
         title: "Blue",
         year: "2024",
         description: "Vibrant social media content with striking blue color themes",
-        thumbnail: "/assets/images/blue1.jpg",
+        thumbnail: "/assets/images/bluecover.jpg",
         slug: "blue"
       }
     ]
   }
 }
 
-export default function CategoryPage({ params }) {
+export default function CategoryPage({ params }: { params: { category: string } }) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const category = params.category
-  const categoryInfo = categoryData[category]
+  const categoryInfo = categoryData[category as keyof typeof categoryData]
 
   if (!categoryInfo) return null
 
@@ -187,7 +181,7 @@ export default function CategoryPage({ params }) {
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {categoryInfo.projects.map((project, index) => (
+            {categoryInfo.projects.map((project: any, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

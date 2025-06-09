@@ -30,7 +30,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       title: "God's Wife",
       category: "Films",
       slug: "gods-wife",
-      heroImage: "/assets/images/Godswife1.jpg",
+      heroImage: "/assets/images/Godswife6.jpg",
       coverImages: [
         "/assets/images/Godswife1.jpg",
         "/assets/images/Godswife2.jpg",
@@ -215,7 +215,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     },
     {
       title: "Alone",
-      category: "Short Films",
+      category: "Films",
       slug: "alone",
       heroImage: "/assets/images/Alone1.jpg",
       coverImages: Array.from({length: 12}, (_, i) => `/assets/images/Alone${i + 1}.jpg`),
@@ -269,7 +269,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     'alone': project.coverImages,
     'gods-wife': project.coverImages,
     'salamatus-rhapsody': project.coverImages,
-    'timeless': [project.heroImage],
+    'timeless': [],
     'rotate': project.coverImages
   };
   
@@ -405,7 +405,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="mb-24"
             >
-              <h2 className="font-serif text-3xl mb-8 text-center">Stills</h2>
+              {project.slug !== 'timeless' && (
+                <h2 className="font-serif text-3xl mb-8 text-center">Stills</h2>
+              )}
               
               {/* Stills Grid - Using larger layout similar to covers */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">

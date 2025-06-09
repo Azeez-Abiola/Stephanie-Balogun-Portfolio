@@ -149,8 +149,7 @@ export default function Work() {
 // Updated categories with correct counts
 const categories = [
   { name: "Music Videos", count: 7 },
-  { name: "Films", count: 3 },
-  { name: "Short Films", count: 1 },
+  { name: "Films", count: 4 },
   { name: "Commercials", count: 1 },
   { name: "Social Media", count: 2 },
 ]
@@ -198,10 +197,10 @@ const allProjects = [
     title: "I Think of You",
     category: "Music Videos",
     slug: "i-think-of-you",
-    thumbnail: "/assets/images/thinkof1.jpg",
+    thumbnail: "/assets/images/thinkofcover.jpg",
   },
   
-  // Films (3)
+  // Films (4)
   {
     title: "We Are All We Have",
     category: "Films",
@@ -218,15 +217,13 @@ const allProjects = [
     title: "God's Wife",
     category: "Films",
     slug: "gods-wife",
-    thumbnail: "/assets/images/Godswife1.jpg",
+    thumbnail: "/assets/images/Godswife6.jpg",
   },
-  
-  // Short Films (1)
   {
     title: "Alone",
-    category: "Short Films",
+    category: "Films",
     slug: "alone",
-    thumbnail: "/assets/images/Alone1.jpg",
+    thumbnail: "/assets/images/alonecover.jpg",
   },
   
   // Commercials (1)
@@ -235,20 +232,6 @@ const allProjects = [
     category: "Commercials",
     slug: "holy-land",
     thumbnail: "/assets/images/HollyLand1.jpg",
-  },
-  
-  // Social Media (2)
-  {
-    title: "Rotate",
-    category: "Social Media",
-    slug: "rotate",
-    thumbnail: "/assets/images/Rotate1.jpg",
-  },
-  {
-    title: "Blue",
-    category: "Social Media",
-    slug: "blue",
-    thumbnail: "/assets/images/blue1.jpg",
   }
 ]
 
