@@ -16,7 +16,7 @@ const categoryData = {
         title: "Abeke",
         year: "2024",
         description: "A visually striking music video with vibrant color grading",
-        thumbnail: "/assets/images/Abeke.jpg",
+        thumbnail: "/assets/images/abeke.jpg",
         slug: "abeke"
       },
       {
