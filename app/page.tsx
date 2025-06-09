@@ -66,7 +66,7 @@ export default function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Film Colorist
+            Colorist
           </motion.h2>
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -164,7 +164,7 @@ export default function Home() {
           >
             <div className="relative w-full h-full">
               <Image
-                src="/assets/images/collage.jpg"
+                src="/assets/images/WIDE.jpg"
                 alt="Work Collage"
                 fill
                 className="object-cover"
@@ -311,7 +311,7 @@ export default function Home() {
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-orange rounded-full opacity-20"></div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-turquoise rounded-full opacity-20"></div>
               <Image
-                src="/assets/images/headshot.JPG"
+                src="/assets/images/headshot1.JPG"
                 alt="Stephanie Balogun"
                 width={500}
                 height={500}

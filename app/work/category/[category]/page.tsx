@@ -30,21 +30,21 @@ const categoryData = {
         title: "Ceiling",
         year: "2024",
         description: "Creative color grading enhancing the atmospheric visuals",
-        thumbnail: "/assets/images/CEILING.jpg",
+        thumbnail: "/assets/images/ceiling1.jpg",
         slug: "ceiling"
       },
       {
         title: "Inciting",
         year: "2024",
         description: "Innovative color work creating visual impact",
-        thumbnail: "/assets/images/inciting.jpg",
+        thumbnail: "/assets/images/Inciting1.jpg",
         slug: "inciting"
       },
       {
         title: "Timeless",
         year: "2024",
         description: "A timeless piece with meticulous color grading",
-        thumbnail: "/assets/images/Timeless.jpg",
+        thumbnail: "/assets/images/Timeless1.jpg",
         slug: "timeless"
       },
       {
@@ -53,6 +53,13 @@ const categoryData = {
         description: "Cosmic themes enhanced through creative color treatment",
         thumbnail: "/assets/images/spacemen.jpg",
         slug: "spacemen"
+      },
+      {
+        title: "I Think of You",
+        year: "2024",
+        description: "An emotional music video with thoughtful color treatment",
+        thumbnail: "/assets/images/thinkof1.jpg",
+        slug: "i-think-of-you"
       }
     ]
   },
@@ -64,22 +71,35 @@ const categoryData = {
         title: "We Are All We Have",
         year: "2024",
         description: "Cinematic color grading for emotional storytelling",
-        thumbnail: "/assets/images/we are all we have.jpg",
+        thumbnail: "/assets/images/Weareallwehave1.jpg",
         slug: "we-are-all-we-have"
       },
       {
         title: "Salamatu's Rhapsody",
         year: "2024",
         description: "Rich color palette enhancing the film's narrative",
-        thumbnail: "/assets/images/salamatu.jpg",
+        thumbnail: "/assets/images/Salamatu1.jpg",
         slug: "salamatus-rhapsody"
       },
       {
         title: "God's Wife",
         year: "2024",
         description: "Sophisticated color treatment for dramatic effect",
-        thumbnail: "/assets/images/Gods wife.jpg",
+        thumbnail: "/assets/images/Godswife1.jpg",
         slug: "gods-wife"
+      }
+    ]
+  },
+  'short-films': {
+    title: "Short Films",
+    description: "Short film color grading and visual storytelling",
+    projects: [
+      {
+        title: "Alone",
+        year: "2024",
+        description: "A contemplative short film exploring solitude and introspection",
+        thumbnail: "/assets/images/Alone1.jpg",
+        slug: "alone"
       }
     ]
   },
@@ -91,7 +111,7 @@ const categoryData = {
         title: "Hollyland",
         year: "2024",
         description: "Premium commercial color grading with visual impact",
-        thumbnail: "/assets/images/hollyland.jpg",
+        thumbnail: "/assets/images/HollyLand1.jpg",
         slug: "holy-land"
       }
     ]
@@ -104,8 +124,15 @@ const categoryData = {
         title: "Rotate",
         year: "2024",
         description: "Engaging social media content with polished color work",
-        thumbnail: "/assets/images/rotate.jpg",
+        thumbnail: "/assets/images/Rotate1.jpg",
         slug: "rotate"
+      },
+      {
+        title: "Blue",
+        year: "2024",
+        description: "Vibrant social media content with striking blue color themes",
+        thumbnail: "/assets/images/blue1.jpg",
+        slug: "blue"
       }
     ]
   }
@@ -184,12 +211,6 @@ export default function CategoryPage({ params }) {
                   </div>
                 </Link>
                 <h3 className="text-xl font-serif mb-2">{project.title}</h3>
-                <p className="text-turquoise text-sm uppercase tracking-wider font-medium mb-2">
-                  {project.year}
-                </p>
-                <p className="text-white/70 text-sm">
-                  {project.description}
-                </p>
               </motion.div>
             ))}
           </div>

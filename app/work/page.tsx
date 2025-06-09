@@ -148,15 +148,16 @@ export default function Work() {
 
 // Updated categories with correct counts
 const categories = [
-  { name: "Music Videos", count: 6 },
+  { name: "Music Videos", count: 7 },
   { name: "Films", count: 3 },
+  { name: "Short Films", count: 1 },
   { name: "Commercials", count: 1 },
-  { name: "Social Media", count: 1 },
+  { name: "Social Media", count: 2 },
 ]
 
 // Updated project data with correct categorization and image paths
 const allProjects = [
-  // Music Videos (6)
+  // Music Videos (7)
   {
     title: "Abeke",
     category: "Music Videos",
@@ -193,6 +194,12 @@ const allProjects = [
     slug: "spacemen",
     thumbnail: "/assets/images/spacemen.jpg",
   },
+  {
+    title: "I Think of You",
+    category: "Music Videos",
+    slug: "i-think-of-you",
+    thumbnail: "/assets/images/thinkof1.jpg",
+  },
   
   // Films (3)
   {
@@ -214,6 +221,14 @@ const allProjects = [
     thumbnail: "/assets/images/Godswife1.jpg",
   },
   
+  // Short Films (1)
+  {
+    title: "Alone",
+    category: "Short Films",
+    slug: "alone",
+    thumbnail: "/assets/images/Alone1.jpg",
+  },
+  
   // Commercials (1)
   {
     title: "Hollyland",
@@ -222,12 +237,18 @@ const allProjects = [
     thumbnail: "/assets/images/HollyLand1.jpg",
   },
   
-  // Social Media (1)
+  // Social Media (2)
   {
     title: "Rotate",
     category: "Social Media",
     slug: "rotate",
     thumbnail: "/assets/images/Rotate1.jpg",
+  },
+  {
+    title: "Blue",
+    category: "Social Media",
+    slug: "blue",
+    thumbnail: "/assets/images/blue1.jpg",
   }
 ]
 

@@ -96,13 +96,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       heroImage: "/assets/images/Rotate1.jpg",
       coverImages: [
         "/assets/images/Rotate1.jpg",
-        "/assets/images/Rotate2.jpg",
         "/assets/images/Rotate3.jpg",
         "/assets/images/Rotate4.jpg",
         "/assets/images/Rotate5.jpg",
         "/assets/images/Rotate6.jpg",
         "/assets/images/Rotate7.jpg",
-        "/assets/images/Rotate8.jpg",
         "/assets/images/Rotate9.jpg",
         "/assets/images/Rotate10.jpg"
       ],
@@ -189,22 +187,86 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       videoUrl: "https://www.youtube.com/embed/-aKed-YfpYA?si=F4F0csoO8S3ykLGY",
       services: ["Music Video Color", "Brand Color Consistency"],
     },
+    {
+      title: "I Think of You",
+      category: "Music Videos",
+      slug: "i-think-of-you",
+      heroImage: "/assets/images/thinkof1.jpg",
+      coverImages: Array.from({length: 12}, (_, i) => `/assets/images/thinkof${i + 1}.jpg`),
+      client: "Music Artist",
+      year: "2024",
+      description: "An emotional music video with thoughtful color treatment.",
+      overview: "Created a warm and intimate color palette that enhances the emotional depth of the song while maintaining visual consistency throughout.",
+      videoUrl: "https://www.youtube.com/embed/avVqO17wtZY?si=rcI4eZw8yMJ40h67",
+      services: ["Music Video Color", "Look Development"],
+    },
+    {
+      title: "Blue",
+      category: "Social Media",
+      slug: "blue",
+      heroImage: "/assets/images/blue1.jpg",
+      coverImages: Array.from({length: 14}, (_, i) => `/assets/images/blue${i + 1}.jpg`),
+      client: "Social Media Client",
+      year: "2024",
+      description: "Vibrant social media content with striking blue color themes.",
+      overview: "Developed a cohesive blue-themed color palette optimized for social media engagement while maintaining professional quality.",
+      videoUrl: "https://www.instagram.com/reel/DGDdwtMM19e/?igsh=MnJ1Z2phazF2MjN3",
+      services: ["Social Media Color", "Color Grading"],
+    },
+    {
+      title: "Alone",
+      category: "Short Films",
+      slug: "alone",
+      heroImage: "/assets/images/Alone1.jpg",
+      coverImages: Array.from({length: 12}, (_, i) => `/assets/images/Alone${i + 1}.jpg`),
+      client: "Independent Film",
+      year: "2024",
+      description: "A contemplative short film exploring solitude and introspection.",
+      overview: "Created a moody and atmospheric color palette that enhances the film's themes of isolation and self-reflection.",
+      videoUrl: "https://www.youtube.com/embed/e2MCURwN_Hk?si=DT8Pc9iiF3JNvhnq",
+      services: ["Short Film Color", "Look Development", "Final Color"],
+    },
   ]
 
   const project = projects.find((p) => p.slug === params.slug)
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   if (!project) return null
 
   // Get the stills for preloading
   const stillsMap: Record<string, string[]> = {
-    'abeke': Array.from({length: 7}, (_, i) => `/assets/images/Abekestill${i + 1}.jpg`),
+    'abeke': [
+      "/assets/images/Abekestill1.jpg",
+      "/assets/images/Abekestill2.jpg",
+      "/assets/images/Abekestill3.jpg",
+      "/assets/images/Abekecorrect.jpg",
+      "/assets/images/Abekestill5.jpg",
+      "/assets/images/Abekestill6.jpg",
+      "/assets/images/Abekestill7.jpg"
+    ],
     'blood-for-blood': Array.from({length: 7}, (_, i) => `/assets/images/Bloodstill${i + 1}.jpg`),
     'ceiling': Array.from({length: 6}, (_, i) => `/assets/images/Ceilingstill${i + 1}.jpg`),
-    'holy-land': Array.from({length: 10}, (_, i) => `/assets/images/Hollylandstill${i + 1}.jpg`),
+    'holy-land': [
+      "/assets/images/Hollylandstill3.jpg",
+      "/assets/images/Hollylandstill5.jpg",
+      "/assets/images/Hollylandstill7.jpg",
+      "/assets/images/Hollylandstill8.jpg",
+      "/assets/images/Hollylandstill10.jpg"
+    ],
     'inciting': Array.from({length: 8}, (_, i) => `/assets/images/Incitingstill${i + 1}.jpg`),
-    'spacemen': Array.from({length: 7}, (_, i) => `/assets/images/Spacestill${i + 1}.jpg`),
+    'spacemen': [
+      "/assets/images/Spacestill1.jpg",
+      "/assets/images/Spacestill2.jpg",
+      "/assets/images/Spacestill3.jpg",
+      "/assets/images/Spacestill4.jpg",
+      "/assets/images/Spacestill5.jpg",
+      "/assets/images/Spacestill7.jpg"
+    ],
     'we-are-all-we-have': Array.from({length: 7}, (_, i) => `/assets/images/Westill${i + 1}.jpg`),
+    'i-think-of-you': project.coverImages,
+    'blue': project.coverImages,
+    'alone': project.coverImages,
     'gods-wife': project.coverImages,
     'salamatus-rhapsody': project.coverImages,
     'timeless': [project.heroImage],
@@ -221,6 +283,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     if (project.slug === 'rotate') {
       // For Rotate project, open Instagram link in new tab
       window.open('https://www.instagram.com/reel/DHLlZl8g3Is/?igsh=NnQ4Z2IyczhnZHlx', '_blank')
+    } else if (project.slug === 'blue') {
+      // For Blue project, open Instagram link in new tab
+      window.open('https://www.instagram.com/reel/DGDdwtMM19e/?igsh=MnJ1Z2phazF2MjN3', '_blank')
     } else {
       // For other projects, play video normally
       setIsVideoPlaying(true)
@@ -350,7 +415,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="aspect-video relative rounded-lg overflow-hidden"
+                    className="aspect-video relative rounded-lg overflow-hidden cursor-pointer"
+                    onClick={() => setSelectedImage(stillImage)}
                   >
                     <Image
                       src={stillImage}
@@ -361,36 +427,54 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                       priority={index < 6}
                       loading={index < 6 ? "eager" : "lazy"}
                     />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                      <div className="opacity-0 hover:opacity-100 transition-opacity duration-300 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                        </svg>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Project Info - Simplified */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="grid md:grid-cols-2 gap-12 items-start"
-            >
-              <div>
-                <h3 className="text-lg mb-2">Client</h3>
-                <p className="text-white/70 mb-6">{project.client}</p>
-              </div>
-              <div>
-                <h3 className="text-lg mb-2">Services</h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.services.map((service, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-white/5 rounded-full text-sm text-white/70"
-                    >
-                      {service}
-                    </span>
-                  ))}
+            {/* Image Modal/Lightbox */}
+            {selectedImage && (
+              <div 
+                className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                onClick={() => setSelectedImage(null)}
+              >
+                <div className="relative max-w-7xl max-h-full">
+                  <button
+                    onClick={() => setSelectedImage(null)}
+                    className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors duration-300 z-10"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Image
+                      src={selectedImage}
+                      alt="Full size view"
+                      width={1200}
+                      height={800}
+                      className="object-contain max-h-[90vh] w-auto h-auto rounded-lg"
+                      priority
+                    />
+                  </motion.div>
                 </div>
               </div>
-            </motion.div>
+            )}
           </div>
         </section>
       </div>
